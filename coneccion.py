@@ -1,30 +1,22 @@
 import cx_Oracle
+class Herramienta:
+    def comvertirNotasString(self,numeroFila,numeroColumna,consulta):
+        matriz = [None] * numeroFila
+        for i in range(numeroFila):
+            matriz[i] = [i] * numeroColumna
+        for i in range(numeroFila):
+            for j in range(numeroColumna):
+                matriz[i][j] = consulta['NOTA_'+str(j+1)][i]
+        
 
-class conect():
-    def __init__ (self):
-        host="localhost"
-        user="ADMINDATO"
-        password="root"
-        tsname="orcl"
-        try:
-            self.conexion = cx_Oracle.connect(user, password,host+"/"+tsname)
-        except Exception as error:
-            print("no se pudo conectar a la base de datos: "+error)
-        else:
-            print("conexion establecida !!!")
-    def sentenciaCompuesta(self, sentencia):
-        cursor = self.conexion.cursor()
-        cursor.execute(sentencia)
-        datos=cursor.fetchall()
-        cursor.close()
-        return datos
-    def close(self):
-        self.conexion.close()
-
-    def commint(self):
-        self.conexion.commint()
-
-if __name__=="__main__":
-    nexo=conect()
-    for fila in nexo.sentenciaCompuesta("select ID_ALUMNO, PROCEDENCIA_ALUMNO  from alumno"):
-        print(fila)
+        for i in range(numeroFila):
+            for j in range(numeroColumna):
+                if matriz[i][j] < 10.5:
+                    matriz[i][j] = 'DESAPROBADO'
+                else:
+                    matriz[i][j] = 'APROBADO'
+        return matriz
+# if __name__=="__main__":
+    #nexo = conect()
+    #for fila in nexo.sentenciaCompuesta("select ID_ALUMNO, PROCEDENCIA_ALUMNO  from alumno"):
+        #print(fila)

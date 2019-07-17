@@ -1,0 +1,72 @@
+-------------------------TABLA ALUMNO--------------------
+
+CREATE TABLE ALUMNO(
+        IdAlumno             	int NOT NULL,
+        IdCalificacion        	int NOT NULL,
+        IdColegio          	int NOT NULL,
+        IdFacultad		int NOT NULL,
+	nombresAlumno		varchar2(45) NOT NULL,
+	apellidosAlumno		varchar2(70) NOT NULL,
+	edadAlumno             	int NOT NULL);
+commit;
+
+ALTER TABLE ALUMNO
+	ADD PRIMARY KEY (IdAlumno, IdCalificacion,IdColegio,IdFacultad);
+commit;
+
+-------------------------TABLA COLEGIO--------------------
+
+CREATE TABLE COLEGIO(
+        IdColegio          	int NOT NULL,
+	nombreColegio		varchar2(45) NOT NULL,
+	tipoColegio		varchar2(10) NOT NULL);
+commit;
+
+ALTER TABLE COLEGIO
+	ADD PRIMARY KEY (IdColegio);
+commit;
+
+-------------------------TABLA CALIFICACION--------------------
+
+CREATE TABLE CALIFICACION(
+        IdCalificacion        	int NOT NULL,
+	nota_1		Number(4,2) NOT NULL,
+	nota_2		Number(4,2) NOT NULL,
+	nota_3		Number(4,2) NOT NULL,
+	nota_4		Number(4,2) NOT NULL);
+commit;
+
+ALTER TABLE CALIFICACION
+	ADD PRIMARY KEY (IdCalificacion);
+commit;
+
+-------------------------TABLA FACULTAD--------------------
+
+
+CREATE TABLE FACULTAD(
+        IdFacultad		int NOT NULL,
+	nombreFacultad		varchar2(80) NOT NULL,
+	cantidadEscuelas             	int NOT NULL);
+commit;
+
+ALTER TABLE FACULTAD
+	ADD PRIMARY KEY (IdFacultad);
+commit;
+
+-------------------------AGREGANDO FORENKEY ALUMNO--------------------
+
+ALTER TABLE ALUMNO
+        ADD FOREIGN KEY (IdCalificacion)
+	REFERENCES CALIFICACION;
+commit;
+
+ALTER TABLE ALUMNO
+        ADD FOREIGN KEY (IdColegio)
+	REFERENCES COLEGIO;
+commit;
+
+ALTER TABLE ALUMNO
+        ADD FOREIGN KEY (IdFacultad)
+	REFERENCES FACULTAD;
+commit;
+
