@@ -1,0 +1,18 @@
+
+promedio_1 = consulta['NOTA_1']
+promedio_2 = consulta['NOTA_2']
+promedio_3 = consulta['NOTA_3']
+promedio_4 = consulta['NOTA_4']
+nombreColegio = consulta['IDCOLEGIO']
+plt.subplot(2,2,1)
+plt.stem(promedio_1, nombreColegio, 'r--')
+plt.subplot(2,2,2)
+plt.stem(promedio_2, nombreColegio, 'g--')
+plt.subplot(2,2,3)
+plt.stem(promedio_3, nombreColegio, 'b--')
+plt.subplot(2,2,4)
+plt.stem(promedio_4, nombreColegio, 'y--')
+plt.ylabel('ID_COLEGIO')
+plt.xlabel('PROMEDIO_EXAMEN_1')
+plt.grid()
+plt.show()
