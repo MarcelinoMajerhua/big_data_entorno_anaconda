@@ -12,5 +12,4 @@ ON AL.IDCOLEGIO = CO.IDCOLEGIO
 GROUP BY CO.TIPOCOLEGIO
 ''',conexion)
 
-#Herramienta.graficarFuncionLinea(Herramienta,consulta)
 Herramienta.graficarDesempenioTipoColegio(Herramienta,consulta,'GRAFICO DE DESEMPEÑO TIPO COLEGIO')

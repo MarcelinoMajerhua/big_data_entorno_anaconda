@@ -10,6 +10,7 @@ class Herramienta:
         for i in range (1,5):
             plt.subplot(2,2,i)
             plt.stem(consulta['NOTA_'+str(i)], consulta['IDCOLEGIO'], listaColores[i]+tipoTraso[i])
+            
             plt.ylabel('idColegio')
             plt.yticks(np.arange(21),consulta['IDCOLEGIO']-1)
             plt.xlabel('NOTA_'+str(i))

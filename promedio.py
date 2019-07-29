@@ -10,3 +10,4 @@ hr.graficarFuncionBoxes(hr,consulta,'PROMEDIO_NOTAS')
 
 
 
+
